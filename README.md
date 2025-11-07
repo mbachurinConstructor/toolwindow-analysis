@@ -104,7 +104,7 @@ toolwindow-analysis/
 
 ### Clone Git Repository 
 ```bash
-git clone 
+git clone https://github.com/mbachurinConstructor/toolwindow-analysis.git
 ```
 
 ### Using Docker (Recommended)

@@ -10,4 +10,4 @@ COPY . .
 
 VOLUME /toolwindow_analysis
 
-CMD ["python", "toolwindow_analysis.py"]
+CMD ["python", "Python/toolwindow_analysis.py"]

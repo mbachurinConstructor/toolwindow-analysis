@@ -3,6 +3,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+from pathlib import Path
+
+
+DATA_DIR = Path(__file__).resolve().parents[1] / "Data"
+VIZ_DIR = Path(__file__).resolve().parents[1] / "Vizualisations" 
+VIZ_DIR.mkdir(parents=True, exist_ok=True)
+
+INPUT_CSV = DATA_DIR / "toolwindow_data.csv"
+OUTPUT_MATCHED = DATA_DIR / "matched_sessions.csv"
+FIG_ANALYSIS = VIZ_DIR / "toolwindow_analysis.png"
+FIG_VIOLIN = VIZ_DIR / "toolwindow_violin.png"
+
 
 def break_line(): print("\n", "="*70, "\n")
 
@@ -36,7 +48,7 @@ def match_open_close_events(user_events):
 
 
 # load data into data frame 
-df = pd.read_csv("toolwindow_data.csv")
+df = pd.read_csv(INPUT_CSV)
 
 
 
@@ -226,7 +238,7 @@ print("Computing Box plots ...")
 
 ax2 = axes[0, 1]
 
-bp = ax2.boxplot([manual, auto], labels=["Manual", "Auto"], patch_artist=True, widths=0.6)
+bp = ax2.boxplot([manual, auto], tick_labels=["Manual", "Auto"], patch_artist=True, widths=0.6)
 
 bp["boxes"][0].set_facecolor("blue")
 
@@ -306,7 +318,7 @@ ax4.grid(True, alpha=0.3, axis="y")
 
 
 plt.tight_layout()
-plt.savefig("toolwindow_analysis.png", dpi=300, bbox_inches = "tight")
+plt.savefig(FIG_ANALYSIS, dpi=300, bbox_inches = "tight")
 
 
 
@@ -334,7 +346,7 @@ ax.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
 
-plt.savefig('toolwindow_violin.png', dpi=300, bbox_inches='tight')
+plt.savefig(FIG_VIOLIN, dpi=300, bbox_inches='tight')
 
 # Save processed data
-sessions_clean.to_csv('matched_sessions.csv', index=False)
+sessions_clean.to_csv(OUTPUT_MATCHED, index=False)

@@ -3,10 +3,10 @@ version: '3.8'
 services:
   toolwindow-analysis:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: Docker/Dockerfile
     container_name: toolwindow_analysis
     working_dir: /toolwindow_analysis
     volumes:
-      - .:/toolwindow_analysis
-    command: python toolwindow_analysis.py
+      - ..:/toolwindow_analysis
+    command: python Python/toolwindow_analysis.py
