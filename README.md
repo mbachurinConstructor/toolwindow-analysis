@@ -40,19 +40,24 @@ Code produces two visualization files:
 
 2. **`toolwindow_violin.png`** - Violin plot showing distribution shapes (capped at 30 min for clarity)
 
-##  Project Structure
-
+##  Project Structure                 
 ```
 toolwindow-analysis/
-├── toolwindow_analysis.py      
-├── toolwindow_data.csv         
-├── matched_sessions.csv        
-├── toolwindow_analysis.png     
-├── toolwindow_violin.png       
-├── requirements.txt            
-├── Dockerfile                  
-├── docker-compose.yml          
-└── README.md                   
+├── Data/
+│   ├── toolwindow_data.csv
+│   └── matched_sessions.csv
+├── Docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── Python/
+│   ├── imports.py
+│   └── toolwindow_analysis.py
+├── Vizualisations/
+│   ├── toolwindow_analysis.png
+│   └── toolwindow_violin.png
+├── PDF_REPORT.pdf
+├── README.md
+└── requirements.txt
 ```
 
 ##  Methodology
